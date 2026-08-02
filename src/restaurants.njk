@@ -1,0 +1,136 @@
+---
+layout: base.njk
+title: "Restaurant Guide"
+nav: "restaurants"
+description: "Celiac-safe restaurants in Chicago and Chicagoland, reviewed for dedicated gluten-free kitchens, cross-contamination risk, and must-try menu items."
+permalink: "restaurants/index.html"
+---
+{% set dedicated = collections.dedicatedChicagoRestaurants %}
+{% set friendly = collections.friendlyChicagoRestaurants %}
+{% set suburbs = collections.suburbRestaurants %}
+
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow">Restaurant Guide</span>
+    <h1>Where to eat safely in Chicago &amp; Chicagoland</h1>
+    <p class="lead">We split every spot into two categories: <strong>100% Dedicated Gluten-Free</strong> (no wheat ever enters the building — the safest option for celiac disease) and <strong>Extensive GF Menu</strong> (a shared kitchen with a real gluten-free menu and protocols, but cross-contact is possible). We always note what to watch for.</p>
+    <div class="filter-pills">
+      <a href="#dedicated">100% Dedicated GF</a>
+      <a href="#friendly">Extensive GF Menu</a>
+      <a href="#suburbs">Suburbs</a>
+      <a href="#tips">How We Vet a Restaurant</a>
+    </div>
+  </div>
+</section>
+
+<section id="dedicated">
+  <div class="container">
+    <h2>100% dedicated gluten-free kitchens</h2>
+    <p class="lead">These places never touch wheat, barley, or rye — the lowest-risk category for celiac disease.</p>
+    <div class="grid grid-3" style="margin-top:20px;">
+      {% for r in dedicated %}
+      <div class="card">
+        {% if r.data.photo %}<img class="card-photo" src="{{ r.data.photo }}" alt="{{ r.data.title }}">{% endif %}
+        <div class="card-body">
+          <span class="tag tag-dedicated">100% Dedicated GF</span>
+          <h3>{{ r.data.title }}</h3>
+          <p class="meta-line">{{ r.data.neighborhood }}{% if r.data.address %} · {{ r.data.address }}{% endif %}</p>
+          {{ r.templateContent | safe }}
+          {% if r.data.must_try.length %}<p><strong>Must-try:</strong> {{ r.data.must_try | join(", ") }}.</p>{% endif %}
+          {% if r.data.hours %}<p class="meta-line">{{ r.data.hours }}.</p>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="friendly">
+  <div class="container">
+    <h2>Extensive gluten-free menus (shared kitchen)</h2>
+    <p class="lead">Not dedicated gluten-free facilities, but with real gluten-free menus, trained staff, and protocols worth knowing about. Always remind your server you have celiac disease, not just a preference.</p>
+    <div class="grid grid-3" style="margin-top:20px;">
+      {% for r in friendly %}
+      <div class="card">
+        {% if r.data.photo %}<img class="card-photo" src="{{ r.data.photo }}" alt="{{ r.data.title }}">{% endif %}
+        <div class="card-body">
+          <span class="tag tag-friendly">Extensive GF Menu</span>
+          <h3>{{ r.data.title }}</h3>
+          <p class="meta-line">{{ r.data.neighborhood }}{% if r.data.address %} · {{ r.data.address }}{% endif %}</p>
+          {{ r.templateContent | safe }}
+          {% if r.data.must_try.length %}<p><strong>Must-try:</strong> {{ r.data.must_try | join(", ") }}.</p>{% endif %}
+          {% if r.data.hours %}<p class="meta-line">{{ r.data.hours }}.</p>{% endif %}
+          {% if r.data.caution %}
+          <div class="callout callout-warn" style="padding:14px 16px; margin-top:10px;">
+            <p style="margin:0; font-size:0.85rem;"><strong>Watch out:</strong> {{ r.data.caution }}</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="suburbs">
+  <div class="container">
+    <h2>Chicagoland suburbs</h2>
+    <p class="lead">We're slowly working our way through the suburbs — here's what we've got so far, with more added as we visit.</p>
+    <div class="grid grid-3" style="margin-top:20px;">
+      {% for r in suburbs %}
+      <div class="card">
+        {% if r.data.photo %}<img class="card-photo" src="{{ r.data.photo }}" alt="{{ r.data.title }}">{% endif %}
+        <div class="card-body">
+          <span class="tag {% if r.data.category == 'Dedicated' %}tag-dedicated{% else %}tag-friendly{% endif %}">{% if r.data.category == 'Dedicated' %}100% Dedicated GF{% else %}Extensive GF Menu{% endif %}</span>
+          <h3>{{ r.data.title }}</h3>
+          <p class="meta-line">{{ r.data.neighborhood }}{% if r.data.address %} · {{ r.data.address }}{% endif %}</p>
+          {{ r.templateContent | safe }}
+          {% if r.data.must_try.length %}<p><strong>Must-try:</strong> {{ r.data.must_try | join(", ") }}.</p>{% endif %}
+          {% if r.data.hours %}<p class="meta-line">{{ r.data.hours }}.</p>{% endif %}
+          {% if r.data.caution %}
+          <div class="callout callout-warn" style="padding:14px 16px; margin-top:10px;">
+            <p style="margin:0; font-size:0.85rem;"><strong>Watch out:</strong> {{ r.data.caution }}</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+      <div class="card">
+        <div class="card-body" style="display:flex; flex-direction:column; justify-content:center; text-align:center;">
+          <h3>Know a spot?</h3>
+          <p>We're always adding new suburbs — Naperville, Evanston, Oak Park, and beyond. Send us a tip on the <a href="/contact/">contact page</a> and we'll go check it out.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" id="tips">
+  <div class="container">
+    <h2>How we vet every restaurant</h2>
+    <div class="grid grid-2">
+      <div>
+        <div class="step">
+          <div class="num">1</div>
+          <div><strong>We call ahead.</strong> We ask if there's a dedicated fryer, a separate prep area, and whether the kitchen understands cross-contact (not just "low gluten").</div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div><strong>We say "celiac disease," not "gluten-free."</strong> It signals a medical need, not a diet preference, and kitchens tend to take it more seriously.</div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div><strong>We ask about shared equipment.</strong> Fryers, griddles, toasters, and pasta water are the most common sources of accidental cross-contact.</div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div><strong>We note it honestly here.</strong> If a place isn't 100% dedicated, we say so — you deserve to make the call for your own risk tolerance.</div>
+        </div>
+      </div>
+      <div class="callout callout-teal">
+        <h4>A tool worth bookmarking</h4>
+        <p>The <a href="https://www.findmeglutenfree.com" target="_blank" rel="noopener">Find Me Gluten Free</a> app crowdsources celiac-specific reviews (not just "gluten-free friendly" reviews) and is a great second opinion before you go anywhere new.</p>
+      </div>
+    </div>
+  </div>
+</section>

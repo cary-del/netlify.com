@@ -1,0 +1,4 @@
+{
+  "layout": "newsletter-issue.njk",
+  "permalink": "newsletter/{{ page.fileSlug }}/index.html"
+}

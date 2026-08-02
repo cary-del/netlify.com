@@ -1,0 +1,65 @@
+---
+layout: base.njk
+title: "Recipes"
+nav: "recipes"
+description: "Celiac-safe, gluten-free recipes from Morgan and Allie — breakfast, dinner, and dessert, all tested in their own kitchens."
+permalink: "recipes/index.html"
+---
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow">Recipes</span>
+    <h1>Gluten-free recipes we actually make on repeat</h1>
+    <p class="lead">Every recipe here is naturally gluten-free or made with certified gluten-free ingredients. Always double-check your specific brands — see our note on cross-contact below.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="callout callout-warn">
+      <h4>Before you cook: read the labels</h4>
+      <p style="margin:0;">"Gluten-free" ingredients can still cross-contaminate at home. Use certified gluten-free oats, flour, baking powder, and soy sauce/tamari, and keep a dedicated GF toaster, colander, and cutting board if anyone else in your kitchen eats regular wheat products.</p>
+    </div>
+  </div>
+</section>
+
+{% for recipe in collections.recipes %}
+<section class="{% if loop.index is even %}section-alt{% endif %}">
+  <div class="container">
+    <div class="card" style="max-width:900px; margin:0 auto;">
+      {% if recipe.data.photo %}<img class="card-photo" src="{{ recipe.data.photo }}" alt="{{ recipe.data.title }}" style="height:220px;">{% endif %}
+      <div class="card-body">
+        <span class="tag tag-dedicated">{{ recipe.data.category }}</span>
+        <h2 style="margin-top:6px;">{{ recipe.data.title }}</h2>
+        {{ recipe.templateContent | safe }}
+        <div class="recipe-meta">
+          <div><strong>Prep</strong>{{ recipe.data.prep_time }}</div>
+          <div><strong>Cook</strong>{{ recipe.data.cook_time }}</div>
+          <div><strong>Serves</strong>{{ recipe.data.serves }}</div>
+        </div>
+        <div class="recipe-columns">
+          <div>
+            <h3>Ingredients</h3>
+            <ul>
+              {% for i in recipe.data.ingredients %}<li>{{ i }}</li>{% endfor %}
+            </ul>
+          </div>
+          <div>
+            <h3>Instructions</h3>
+            <ol>
+              {% for step in recipe.data.instructions %}<li>{{ step }}</li>{% endfor %}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+<section>
+  <div class="container" style="text-align:center;">
+    <h2>Want new recipes in your inbox?</h2>
+    <p class="lead" style="margin:0 auto 24px;">We share a new recipe in almost every newsletter issue.</p>
+    <a href="/newsletter/#subscribe" class="btn btn-primary">Subscribe to the Newsletter</a>
+  </div>
+</section>

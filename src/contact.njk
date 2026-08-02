@@ -1,0 +1,63 @@
+---
+layout: base.njk
+title: "Contact"
+nav: "contact"
+description: "Get in touch with Morgan and Allie — restaurant tips, recipe requests, or just to say hi."
+permalink: "contact/index.html"
+---
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow">Contact</span>
+    <h1>Say hi, send a tip, or ask a question</h1>
+    <p class="lead">Restaurant recommendation? Recipe request? Found a mistake? We read every message.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container hero-grid">
+    <div>
+      <form name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact">
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-field">
+          <label for="topic">What's this about?</label>
+          <select id="topic" name="topic">
+            <option>Restaurant tip</option>
+            <option>Recipe request</option>
+            <option>Product question</option>
+            <option>Press / collaboration</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+    <div>
+      <div class="callout callout-teal" style="margin-bottom:20px;">
+        <h4>Prefer email?</h4>
+        <p style="margin:0;">Reach us directly at <a href="mailto:hello@theceliacsisters.com">hello@theceliacsisters.com</a> (once your email is set up — see the publishing guide for how).</p>
+      </div>
+      <div class="photo-placeholder" style="min-height:220px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 8l8 6 8-6"/></svg>
+        <div class="ph-label">Photo or graphic goes here</div>
+      </div>
+      <div class="grid" style="margin-top:20px;">
+        <div>
+          <h4 style="margin-bottom:6px;">Follow along</h4>
+          <p style="margin:0;"><a href="#">Instagram</a> · <a href="#">TikTok</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

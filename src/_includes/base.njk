@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} | The Celiac Sisters</title>
+<meta name="description" content="{{ description or 'Morgan and Allie, two sisters with celiac disease, share celiac-safe restaurants across Chicago & Chicagoland, gluten-free recipes, product picks, and living well with celiac.' }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="/" class="logo"><span class="mark">M&amp;A</span>The Celiac Sisters</a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/" {% if nav == "home" %}class="active"{% endif %}>Home</a></li>
+        <li><a href="/about/" {% if nav == "about" %}class="active"{% endif %}>Our Story</a></li>
+        <li><a href="/restaurants/" {% if nav == "restaurants" %}class="active"{% endif %}>Restaurant Guide</a></li>
+        <li><a href="/recipes/" {% if nav == "recipes" %}class="active"{% endif %}>Recipes</a></li>
+        <li><a href="/products/" {% if nav == "products" %}class="active"{% endif %}>Products We Love</a></li>
+        <li><a href="/newsletter/" {% if nav == "newsletter" %}class="active"{% endif %}>Newsletter</a></li>
+        <li><a href="/contact/" {% if nav == "contact" %}class="active"{% endif %}>Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="/newsletter/#subscribe" class="btn btn-primary">Join the Newsletter</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+{{ content | safe }}
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="logo" style="margin-bottom:10px;"><span class="mark">M&amp;A</span>The Celiac Sisters</a>
+        <p style="max-width:280px;">Morgan &amp; Allie's guide to eating well and living well with celiac disease in Chicago and beyond.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/about/">Our Story</a></li>
+          <li><a href="/restaurants/">Restaurant Guide</a></li>
+          <li><a href="/recipes/">Recipes</a></li>
+          <li><a href="/products/">Products We Love</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="/newsletter/">Newsletter</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://celiac.org" target="_blank" rel="noopener">Celiac Disease Foundation</a></li>
+          <li><a href="https://www.beyondceliac.org" target="_blank" rel="noopener">Beyond Celiac</a></li>
+          <li><a href="https://www.findmeglutenfree.com" target="_blank" rel="noopener">Find Me Gluten Free</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 The Celiac Sisters. Made by Morgan &amp; Allie in Chicago.</span>
+      <span>Not medical advice — always confirm ingredients with restaurant staff.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

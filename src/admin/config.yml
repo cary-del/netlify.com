@@ -1,0 +1,142 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Where uploaded photos get stored in the project, and the web address
+# used to display them once the site is built.
+media_folder: "src/images"
+public_folder: "/images"
+
+site_url: "https://theceliacsisters.com"
+display_url: "https://theceliacsisters.com"
+
+collections:
+  - name: "restaurants"
+    label: "Restaurants"
+    label_singular: "Restaurant"
+    folder: "src/restaurants"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{category}}"
+    fields:
+      - { label: "Restaurant Name", name: "title", widget: "string" }
+      - { label: "Neighborhood", name: "neighborhood", widget: "string" }
+      - { label: "Address", name: "address", widget: "string", required: false }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Dedicated", "Friendly"]
+        hint: "\"Dedicated\" = 100% gluten-free kitchen, no wheat on-site. \"Friendly\" = shared kitchen with a real gluten-free menu."
+      - label: "Region"
+        name: "region"
+        widget: "select"
+        options: ["chicago", "suburbs"]
+      - label: "Must-Try Menu Items"
+        name: "must_try"
+        widget: "list"
+        hint: "Add one menu item per line."
+        required: false
+      - { label: "Hours", name: "hours", widget: "string", required: false }
+      - label: "Cross-Contact Warning"
+        name: "caution"
+        widget: "text"
+        required: false
+        hint: "Only needed for \"Friendly\" (shared kitchen) spots — e.g. shared fryer, ask for a manager, etc."
+      - label: "Feature on Homepage"
+        name: "featured"
+        widget: "boolean"
+        default: false
+      - label: "Photo"
+        name: "photo"
+        widget: "image"
+        required: false
+        hint: "Optional. If you skip this, a placeholder graphic shows instead."
+      - label: "Description"
+        name: "body"
+        widget: "markdown"
+        hint: "A short paragraph about the restaurant."
+
+  - name: "recipes"
+    label: "Recipes"
+    label_singular: "Recipe"
+    folder: "src/recipes"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{category}}"
+    fields:
+      - { label: "Recipe Name", name: "title", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Breakfast", "Brunch", "Dinner", "Family Dinner", "Dessert"]
+      - { label: "Prep Time", name: "prep_time", widget: "string", hint: "e.g. 10 min" }
+      - { label: "Cook Time", name: "cook_time", widget: "string", hint: "e.g. 20 min" }
+      - { label: "Serves", name: "serves", widget: "string", hint: "e.g. 4" }
+      - label: "Ingredients"
+        name: "ingredients"
+        widget: "list"
+        hint: "Add one ingredient per line."
+      - label: "Instructions"
+        name: "instructions"
+        widget: "list"
+        hint: "Add one step per line, in order."
+      - label: "Feature on Homepage"
+        name: "featured"
+        widget: "boolean"
+        default: false
+      - label: "Photo"
+        name: "photo"
+        widget: "image"
+        required: false
+        hint: "Optional. If you skip this, a placeholder graphic shows instead."
+      - label: "Short Intro"
+        name: "body"
+        widget: "markdown"
+        hint: "One or two sentences about the recipe."
+
+  - name: "products"
+    label: "Products We Love"
+    label_singular: "Product"
+    folder: "src/products"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{category}}"
+    fields:
+      - { label: "Product Name", name: "title", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Pantry & Baking", "Bread & Bakery", "Snacks & On-the-Go", "Condiments & Sauces"]
+      - label: "Photo"
+        name: "photo"
+        widget: "image"
+        required: false
+      - label: "Why We Like It"
+        name: "body"
+        widget: "markdown"
+        hint: "One sentence is plenty."
+
+  - name: "newsletter"
+    label: "Newsletter Issues"
+    label_singular: "Issue"
+    folder: "src/newsletter"
+    create: true
+    slug: "issue-{{issue_number}}"
+    summary: "Issue {{issue_number}} — {{title}}"
+    fields:
+      - { label: "Issue Title", name: "title", widget: "string" }
+      - { label: "Issue Number", name: "issue_number", widget: "number", value_type: "int" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - label: "Short Summary"
+        name: "summary"
+        widget: "text"
+        hint: "Shows on the newsletter list page and the homepage."
+      - label: "Cover Image"
+        name: "cover_image"
+        widget: "image"
+        required: false
+        hint: "Optional. If you skip this, a placeholder graphic shows instead."
+      - label: "Full Issue"
+        name: "body"
+        widget: "markdown"
+        hint: "Use headings (##) for sections, and \"> \" at the start of a line for a highlighted callout box."

@@ -1,0 +1,39 @@
+---
+layout: base.njk
+nav: "newsletter"
+---
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow">Newsletter · Issue No. {{ issue_number }}</span>
+    <h1>{{ title }}</h1>
+    {% if summary %}<p class="lead">{{ summary }}</p>{% endif %}
+  </div>
+</section>
+
+{% if cover_image %}
+<section style="padding-top:0; padding-bottom:0;">
+  <div class="container prose">
+    <img src="{{ cover_image }}" alt="{{ title }}" style="border-radius:14px; width:100%; max-height:340px; object-fit:cover;">
+  </div>
+</section>
+{% endif %}
+
+<section>
+  <div class="container prose">
+    {{ content | safe }}
+  </div>
+</section>
+
+<section class="section-alt" id="subscribe">
+  <div class="container">
+    <div class="signup-box">
+      <h2>Never miss an issue</h2>
+      <p>New restaurants, recipes, and the label-reading tips that keep us safe — a few times a month, straight to your inbox.</p>
+      <form class="signup-form" name="newsletter" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="newsletter">
+        <input type="email" name="email" placeholder="you@email.com" required>
+        <button type="submit" class="btn btn-coral">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>

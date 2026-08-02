@@ -1,0 +1,64 @@
+---
+layout: base.njk
+title: "Products We Love"
+nav: "products"
+description: "Certified gluten-free products Morgan and Allie actually buy — pantry staples, bread, snacks, and more for living safely with celiac disease."
+permalink: "products/index.html"
+---
+{% set categories = ["Pantry & Baking", "Bread & Bakery", "Snacks & On-the-Go", "Condiments & Sauces"] %}
+
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow">Products We Love</span>
+    <h1>Our go-to certified gluten-free brands</h1>
+    <p class="lead">These are products we actually keep in our own kitchens. We look for the certified gluten-free logo (like GFCO) whenever possible, since third-party certification tests for gluten below 10ppm — stricter than the FDA's 20ppm labeling threshold.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="callout callout-teal">
+      <h4>How we choose what goes on this list</h4>
+      <p style="margin:0;">We prioritize brands that are either made in a dedicated gluten-free facility or carry third-party certification (GFCO, NSF, etc.). We are not sponsored by any brand listed here — these are genuinely what's in our pantries. Formulas change, so always check the label yourself before buying.</p>
+    </div>
+  </div>
+</section>
+
+{% for cat in categories %}
+{% set items = collections.productsByCategory[cat] %}
+{% if items and items.length %}
+<section class="{% if loop.index is even %}section-alt{% endif %}">
+  <div class="container">
+    <h2>{{ cat }}</h2>
+    <div class="grid grid-4">
+      {% for p in items %}
+      <div class="card">
+        {% if p.data.photo %}<img class="card-photo" src="{{ p.data.photo }}" alt="{{ p.data.title }}" style="height:130px;">{% endif %}
+        <div class="card-body">
+          <h3 style="font-size:1.05rem;">{{ p.data.title }}</h3>
+          {{ p.templateContent | safe }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endfor %}
+
+<section>
+  <div class="container">
+    <div class="callout callout-warn">
+      <h4>A few ingredients that surprise people</h4>
+      <p style="margin:0;">Soy sauce, malt vinegar, malt extract/flavoring, beer, most seitan-based fake meats, some oats (unless certified GF), communion wafers, and even some medications or supplements use wheat-based fillers. When in doubt, check the ingredient label every single time — formulas change without notice.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container" style="text-align:center;">
+    <h2>Want our full grocery list?</h2>
+    <p class="lead" style="margin:0 auto 24px;">We share our monthly shopping list and new product finds in the newsletter.</p>
+    <a href="/newsletter/#subscribe" class="btn btn-primary">Subscribe to the Newsletter</a>
+  </div>
+</section>
