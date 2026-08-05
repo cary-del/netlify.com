@@ -3,6 +3,7 @@ title: "What We Wish We Knew About Cross-Contamination"
 issue_number: 1
 date: 2026-08-01
 summary: "Shared fryers, \"gluten-friendly\" menus, and the hidden gluten sources that trip up even veteran celiacs. This is the guide we needed on day one."
+cover_image: "/images/newsletter-cover.svg"
 ---
 Hi, it's Morgan & Allie 👋
 
