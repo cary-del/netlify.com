@@ -193,6 +193,12 @@ nav.main-nav a.active {
 
 .nav-cta { display: flex; align-items: center; gap: 16px; }
 
+.nav-cta .btn {
+  padding: 9px 18px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
 .nav-toggle {
   display: none;
   background: none;
