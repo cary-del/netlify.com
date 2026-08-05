@@ -1,0 +1,84 @@
+<svg viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .ink { stroke:#1c1a17; fill:none; stroke-width:5; stroke-linecap:round; stroke-linejoin:round; }
+      .inkfill { fill:#1c1a17; }
+      .label { font-family: Arial, Helvetica, sans-serif; font-weight:700; fill:#1c1a17; }
+    </style>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="1200" height="1200" fill="#f5efe4"/>
+
+  <!-- outer circle frame -->
+  <circle cx="600" cy="600" r="540" class="ink" stroke-width="4"/>
+
+  <!-- laurel branch, left -->
+  <g class="ink">
+    <path d="M150 430 C 140 560, 140 700, 190 800"/>
+    <ellipse cx="158" cy="470" rx="26" ry="14" transform="rotate(-25 158 470)"/>
+    <ellipse cx="145" cy="540" rx="28" ry="15" transform="rotate(-10 145 540)"/>
+    <ellipse cx="146" cy="615" rx="28" ry="15" transform="rotate(6 146 615)"/>
+    <ellipse cx="158" cy="690" rx="28" ry="15" transform="rotate(22 158 690)"/>
+    <ellipse cx="178" cy="755" rx="26" ry="14" transform="rotate(38 178 755)"/>
+    <circle cx="205" cy="815" r="5" class="inkfill" stroke="none"/>
+    <circle cx="222" cy="845" r="4" class="inkfill" stroke="none"/>
+  </g>
+
+  <!-- laurel branch, right (mirrored) -->
+  <g class="ink" transform="translate(1200,0) scale(-1,1)">
+    <path d="M150 430 C 140 560, 140 700, 190 800"/>
+    <ellipse cx="158" cy="470" rx="26" ry="14" transform="rotate(-25 158 470)"/>
+    <ellipse cx="145" cy="540" rx="28" ry="15" transform="rotate(-10 145 540)"/>
+    <ellipse cx="146" cy="615" rx="28" ry="15" transform="rotate(6 146 615)"/>
+    <ellipse cx="158" cy="690" rx="28" ry="15" transform="rotate(22 158 690)"/>
+    <ellipse cx="178" cy="755" rx="26" ry="14" transform="rotate(38 178 755)"/>
+    <circle cx="205" cy="815" r="5" class="inkfill" stroke="none"/>
+    <circle cx="222" cy="845" r="4" class="inkfill" stroke="none"/>
+  </g>
+
+  <!-- envelope icon -->
+  <g class="ink" stroke-width="6" transform="translate(600,430)">
+    <rect x="-170" y="-105" width="340" height="230" rx="14"/>
+    <path d="M-170 -95 L0 55 L170 -95"/>
+  </g>
+  <!-- little heart seal on envelope flap -->
+  <path d="M600 405 c -14 -18 -42 -6 -42 14 c 0 22 42 46 42 46 s 42 -24 42 -46 c 0 -20 -28 -32 -42 -14 z" fill="#c0562f"/>
+
+  <!-- headline text -->
+  <text x="600" y="740" text-anchor="middle" class="label" font-size="84" letter-spacing="2">the newsletter</text>
+
+  <!-- subtitle with dots -->
+  <circle cx="430" cy="800" r="4" class="inkfill" stroke="none"/>
+  <text x="600" y="812" text-anchor="middle" class="label" font-size="34" letter-spacing="6" fill="#1c1a17" font-weight="600">CELIAC SISTERS</text>
+  <circle cx="770" cy="800" r="4" class="inkfill" stroke="none"/>
+
+  <!-- bottom laurel sprigs -->
+  <g class="ink" stroke-width="4">
+    <path d="M430 900 C 400 915, 380 935, 372 960"/>
+    <ellipse cx="415" cy="905" rx="16" ry="9" transform="rotate(-20 415 905)"/>
+    <ellipse cx="392" cy="925" rx="16" ry="9" transform="rotate(5 392 925)"/>
+    <ellipse cx="378" cy="948" rx="16" ry="9" transform="rotate(30 378 948)"/>
+  </g>
+  <g class="ink" stroke-width="4" transform="translate(1200,0) scale(-1,1)">
+    <path d="M430 900 C 400 915, 380 935, 372 960"/>
+    <ellipse cx="415" cy="905" rx="16" ry="9" transform="rotate(-20 415 905)"/>
+    <ellipse cx="392" cy="925" rx="16" ry="9" transform="rotate(5 392 925)"/>
+    <ellipse cx="378" cy="948" rx="16" ry="9" transform="rotate(30 378 948)"/>
+  </g>
+
+  <!-- gluten-free wheat-strike badge, matching logo -->
+  <g transform="translate(600,970)">
+    <circle cx="0" cy="0" r="55" class="ink" stroke-width="4"/>
+    <g class="ink" stroke-width="4">
+      <path d="M0 30 L0 -32"/>
+      <path d="M0 -10 C -14 -18, -14 -30, -4 -34"/>
+      <path d="M0 -10 C 14 -18, 14 -30, 4 -34"/>
+      <path d="M0 4 C -14 -4, -14 -16, -4 -20"/>
+      <path d="M0 4 C 14 -4, 14 -16, 4 -20"/>
+      <path d="M0 18 C -12 12, -12 2, -4 -2"/>
+      <path d="M0 18 C 12 12, 12 2, 4 -2"/>
+    </g>
+    <line x1="-40" y1="34" x2="40" y2="-34" class="ink" stroke-width="5"/>
+  </g>
+</svg>
