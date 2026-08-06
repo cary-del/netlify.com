@@ -191,11 +191,11 @@ nav.main-nav a.active {
   font-weight: 700;
 }
 
-.nav-cta { display: flex; align-items: center; gap: 16px; }
+.nav-cta { display: flex; align-items: center; gap: 16px; margin-left: 28px; }
 
 .nav-cta .btn {
-  padding: 9px 18px;
-  font-size: 0.85rem;
+  padding: 7px 14px;
+  font-size: 0.78rem;
   white-space: nowrap;
 }
 
