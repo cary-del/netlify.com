@@ -85,7 +85,7 @@ description: "Morgan and Allie, two sisters with celiac disease, share celiac-sa
         <a href="{{ latestIssue.url }}" class="btn btn-primary">Read Issue No. {{ latestIssue.data.issue_number }}</a>
       </div>
       {% if latestIssue.data.cover_image %}
-      <img src="{{ latestIssue.data.cover_image }}" alt="{{ latestIssue.data.title }}" style="border-radius:14px; width:100%; height:220px; object-fit:cover;">
+      <img src="{{ latestIssue.data.cover_image }}" alt="{{ latestIssue.data.title }}" style="border-radius:14px; width:100%; max-width:260px; height:auto; margin:0 auto; display:block;">
       {% else %}
       <div class="photo-placeholder" style="min-height:220px;">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 8h16"/><path d="M8 4v4"/></svg>
